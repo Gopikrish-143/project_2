@@ -11,8 +11,11 @@ const app = express();
 
 // middleware
 app.use(cors({
-  "http://16.171.28.236:3000",  // if opening frontend from EC2
+    origin: [
+    "http://16.171.28.236:3000",  // if opening frontend from EC2
     "https://project-2-flame-omega.vercel.app"  // if opening from Vercel
+  ],
+  credentials: true
 }));
 app.use(express.json());
 
