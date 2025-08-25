@@ -13,7 +13,7 @@ const app = express();
 app.use(cors({
     origin: [
     "http://16.171.28.236:3000",  // if opening frontend from EC2
-    "https://project-2-flame-omega.vercel.app"  // if opening from Vercel
+    "http://project-2-flame-omega.vercel.app"  // if opening from Vercel
   ],
   credentials: true
 }));
