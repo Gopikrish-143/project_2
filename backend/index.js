@@ -3,6 +3,8 @@ const dotenv = require('dotenv').config();
 const cors = require('cors');
 const dbConnect = require('./config/db');
 const authRoutes = require('./routes/authRoutes');
+const path = require("path");
+
 
 dbConnect();
 
@@ -11,7 +13,7 @@ const app = express();
 
 // middleware
 app.use(cors({
-    origin:"https://16.171.28.236:5173",
+    origin:"*",
     credentials:true
 }));
 app.use(express.json());
@@ -20,6 +22,13 @@ app.use(express.json());
 
 // routes
 app.use("/api/auth", authRoutes);
+
+app.use(express.static(path.join(__dirname, "dist")));
+
+// Fallback for React Router (SPA support)
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "dist", "index.html"));
+});
 
 //server 
 const PORT = process.env.PORT || 7002;

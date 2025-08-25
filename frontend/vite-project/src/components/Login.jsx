@@ -13,7 +13,7 @@ const LoginPage = () => {
   const handleLogin = async(e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/auth`, {
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/`, {
         username,
         password,
       });
