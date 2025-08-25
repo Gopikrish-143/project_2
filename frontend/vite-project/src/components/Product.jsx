@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { VITE_API_URL } from "../../const";
 
 const AddProduct = () => {
   const [productName, setProductName] = useState("");
@@ -20,7 +21,7 @@ const AddProduct = () => {
         formData.append("productImage", productImage);
       }
 
-      const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/Product`,
+      const res = await axios.post(`${VITE_API_URL}/api/auth/Product`,
         formData,
         {
           headers: {

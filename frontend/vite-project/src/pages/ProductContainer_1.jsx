@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import axios from 'axios';
+import { VITE_API_URL } from '../../const';
 const ProductContainer_1 = () => {
       const [products,setProducts] = useState([]);
 
@@ -8,7 +9,7 @@ const ProductContainer_1 = () => {
         try {
              const token = localStorage.getItem('token')  
              
-             const result = await axios.get(`${import.meta.env.VITE_API_URL}/api/auth/Productlist`,{
+             const result = await axios.get(`${VITE_API_URL}/api/auth/Productlist`,{
              headers:{
                 Authorization: `Bearer ${token}`
              }

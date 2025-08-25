@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import {ToastContainer,toast} from 'react-toastify';
+import { VITE_API_URL } from "../../const";
 
 const LoginPage = () => {
   const [username, setUsername] = useState(""); 
@@ -13,7 +14,7 @@ const LoginPage = () => {
   const handleLogin = async(e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/`, {
+      const res = await axios.post(`${VITE_API_URL}/api/auth/`, {
         username,
         password,
       });
